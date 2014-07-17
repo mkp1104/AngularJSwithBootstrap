@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html >
+
+<html lang="en" ng-app="eventsApp">
+<head>
+ <meta charset="utf-8">
+    <title>Evet Registration</title>
+   
+<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+  <link href="css/Bootstrap.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body>
+<div class="container">
+  <div class="navbar">
+      <div class="navbar-inner">
+          <ul class="nav">
+          
+
+          </ul>
+      </div>
+  </div>
+  <div ng-controller="EventController" style="padding-left:20px;padding-right:20px">
+  <img ng-src="{{event.imageUrl}}">
+    <div class="row">
+      <div class="span11">
+        <h2>{{event.name}}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <div><strong>Date:</strong>{{event.date}}</div>
+        <div><strong>Time:</strong>{{event.time}}</div>
+      </div>
+      <div class="span4">
+       <!-- <div><strong>Date:</strong>{{event.location.address}}</div>-->
+       <address>
+        <strong>Address: </strong><br />
+       {{event.location.address}},<br />
+       {{event.location.city}},<br />
+       {{event.location.province}}
+       </address>
+       </div>
+    </div>
+
+    <hr />
+    <h3>Sessions</h3>
+    <ul class="thumbnails">
+    
+     <li ng-repeat="session in event.sessions">
+      <div class="row session">
+     <div class="span0 well votingWidget">
+     <div class="votingButton" ng-click="upVoteSession(session)">
+       <i class="icon-chevron-up icon-white"></i>
+     </div>  
+       <div class="badge badge-inverse">
+       <div>Count : {{session.upVoteCount}}</div>
+       </div>
+       <div class="votingButton" ng-click="downVoteSession(session)">
+        <i class="icon-chevron-down icon-white"></i>
+       </div>
+        </div>
+          <div class="well span9">
+          <h4 class="well-title">   {{session.name}}</h4>
+          <h6 > Age : {{session.age}}</h6>
+          <h6>Address : {{session.address}}</h6>
+         
+        </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>
+<script src="bower_components/angular/angular.js" type="text/javascript"></script>
+<script src="bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="js/Underscore-1.4.4.min.js" type="text/javascript"></script>
+<script src="js/app.js" type="text/javascript"></script>
+  
+<script src="js/Controllers/EventController.js" type="text/javascript"></script>
+</body>
+</html>

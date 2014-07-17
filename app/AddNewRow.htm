@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+  <link href="css/Bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+<script src="bower_components/angular/angular.js" type="text/javascript"></script>
+
+<script src="JSAddNewRow/AddNewRow.js" type="text/javascript"></script>
+
+<body ng-app="app" ng-controller="ExampleCtrl">
+    <h1>Person List</h1>
+
+    <fieldset>
+       <legend>Create Person</legend>
+       <input type="text" ng-model="pkp.mkp.name" placeholder="Name" ><br />
+       <input type="number" ng-model="pkp.mkp.age" placeholder="Age" ><br />
+       <input type="text" ng-model="pkp.mkp.title" placeholder="Title"><br />
+       <button type="button" ng-click="addPerson(pkp)">Add Person</button>
+    </fieldset>
+
+    <table border="1" cellpadding="10">
+       <thead
+         <tr>
+           <th>
+              Name
+           </th>
+           <th>
+              Age
+          </th>
+          <th>
+              Title
+          </th>
+          <th>
+
+          </th>
+        </tr>
+      </thead>
+      <body>
+         <tr ng-repeat="person in people">
+           <td>
+             {{ person.name }}
+          </td>
+          <td>
+             {{ person.age }}
+          </td>
+          <td>
+             {{ person.title }}
+          </td>
+          <td>
+             <button type="button" ng-click="removePerson($index)">Remove Person</button>
+          </td>
+        </tr>
+      </body>
+    </table>
+    <input type="text" ng-model="searchQuery" />
+<button class="btn" <!--do something here maybe?-->>
+  <i class="icon-search" ng-class="{'icon-refresh': searchQuery.length}"></i>
+</button>
+
+   <div class="container">
+        <div class="row">
+          <div ng-controller="CommentController">
+              <form name="commentForm" method="post">
+                  <div class="field">
+                      <label>Name:</label>
+                      <input type="text" class="text" ng-model="comment.author" />
+                  </div>
+
+                  <div class="field">
+                      <label>Email:</label>
+                      <input type="email" class="text" name="email" ng-model="comment.email" required/>
+                  </div>
+
+                  <div class="field">
+                      <label>Message:</label>
+                      <textarea class="text textarea"  name="message" ng-model="comment.comment" required></textarea>
+                  </div>
+
+                  <div class="field">
+                      <input type="button" id="sendComment" value="Add Comment" ng-click="postComments(comment)"/>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+
+
+
+  </body>
+</html>
