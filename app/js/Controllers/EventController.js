@@ -1,6 +1,12 @@
 ﻿'use strict';
-
-eventsApp.controller('EventController', function EventController($scope) {
+var App = angular.module('eventsApp', ['ngSanitize']);
+App.controller('EventController', function EventController($scope) {
+  $scope.snippet = '<span style="color:red">Hi Dear</span>';
+  $scope.boolvalue = true;
+  $scope.myStyle = { color: 'red' };
+  $scope.myClass = "Blue";
+  $scope.buttonDisable = true;
+  $scope.sortorder = 'name';
 
   $scope.event = {
     name: 'Angular Js',
@@ -20,19 +26,19 @@ eventsApp.controller('EventController', function EventController($scope) {
     name: 'Manish Prasad',
     age: '23',
     address: 'India(Earth)',
-    upVoteCount: 0
+    upVoteCount: 3
   },
   {
-    name: 'Manish Prasad1',
+    name: 'Raghav Sinha',
     age: '23',
     address: 'India(Earth)',
-    upVoteCount: 0
+    upVoteCount: 8
   },
   {
-    name: 'Manish Prasad2',
+    name: 'Salman Khan',
     age: '23',
     address: 'India(Earth)',
-    upVoteCount: 0
+    upVoteCount: 10
   }
   ]
 

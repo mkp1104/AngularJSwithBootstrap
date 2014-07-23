@@ -6,32 +6,75 @@
     <title>Evet Registration</title>
    
 <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
-  <link href="css/Bootstrap.css" rel="stylesheet" type="text/css" />
-
+<!--  <link href="css/Bootstrap.css" rel="stylesheet" type="text/css" />-->
+                                <!--Awesome-->
+  
+  
+  <link href="bootstrap2.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+      <script src="js/angular-sanitize.js" type="text/javascript"></script>
+      <script src="bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>
+      <script src="js/Underscore-1.4.4.min.js" type="text/javascript"></script>
+      <script src="js/app.js" type="text/javascript"></script>
+      <script src="js/Controllers/EventController.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body ng-cloak>
 <div class="container">
   <div class="navbar">
       <div class="navbar-inner">
-          <ul class="nav">
-          
-
-          </ul>
+          <p class=""><center><h2>Event Registration</h2></center></p>
       </div>
   </div>
   <div ng-controller="EventController" style="padding-left:20px;padding-right:20px">
   <img ng-src="{{event.imageUrl}}">
     <div class="row">
       <div class="span11">
-        <h2>{{event.name}}</h2>
+     <!--   <h2>{{event.name}}</h2>-->
+      <!--  <h2 ng-bind="event.name"></h2>-->
+<!--        <h2 ng-style="myStyle" ng-bind-template="{{event.name}} {{event.date}}"></h2>-->
+        <h2 ng-class="myClass" ng-bind-template="{{event.name}} {{event.date}}"></h2>
       </div>
     </div>
+
+    <button class="btn" ng-disabled="buttonDisable">Disable</button>
+    <div class="input-small">
+    <div>{{1 + 2}}</div>
+    <div>{{[1,2,3][2]}}</div>
+    <div>{{[1,2,3][2]}}</div>
+
+
+
+
+    <div>{{21212211 | date:'mediumDate'}}</div>
+    <div>{{ 3 | currency}}</div>
+    <div>{{3 | number:3}}</div>
+    <div>{{ 'manish' | uppercase}}</div>
+    <div>{{ 'MANISH' | lowercase}}</div>
+    <div>{{ {a:3,b:'Hi',c:{aa:35} } | json}}</div>
+   <!-- <div>{{[1,2,3][2]}}</div>-->
+
+    <div ng-non-bindable>{{1 + 2}}</div>
+
+
+    <div ng-bind-html="snippet">Some Title</div>
+    <div ng-bind-html-unsafe="snippet">Some Title</div>
+    <h5 ng-show="boolvalue">Show This</h5>
+    <h5 ng-show="!boolvalue">Show This With !</h5>
+    <h5 ng-Hide="boolvalue">Hide This</h5>
+    <h5 ng-Hide="!boolvalue">Hide This with !</h5>
+    </div>
+
+
     <div class="row">
       <div class="span3">
         <div><strong>Date:</strong>{{event.date}}</div>
         <div><strong>Time:</strong>{{event.time}}</div>
       </div>
+
+
+
+
       <div class="span4">
        <!-- <div><strong>Date:</strong>{{event.location.address}}</div>-->
        <address>
@@ -45,9 +88,16 @@
 
     <hr />
     <h3>Sessions</h3>
+    Order By:
+    <select ng-model="sortorder" class="input-small">
+    <option selected value="name">Name</option>
+    <option selected value="-upVoteCount">Votes</option>
+    </select>
+    
     <ul class="thumbnails">
     
-     <li ng-repeat="session in event.sessions">
+     <li ng-repeat="session in event.sessions | orderBy : sortorder | limitTo : 2">
+ <!--    <li ng-repeat="session in event.sessions">-->
       <div class="row session">
      <div class="span0 well votingWidget">
      <div class="votingButton" ng-click="upVoteSession(session)">
@@ -72,11 +122,6 @@
 
   </div>
 </div>
-<script src="bower_components/angular/angular.js" type="text/javascript"></script>
-<script src="bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>
-<script src="js/Underscore-1.4.4.min.js" type="text/javascript"></script>
-<script src="js/app.js" type="text/javascript"></script>
-  
-<script src="js/Controllers/EventController.js" type="text/javascript"></script>
+
 </body>
 </html>
