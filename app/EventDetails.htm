@@ -11,18 +11,24 @@
   
   
   <link href="bootstrap2.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="EditEventDetails.htm" type="text/html" />
       <script src="bower_components/angular/angular.js" type="text/javascript"></script>
       <script src="js/angular-sanitize.js" type="text/javascript"></script>
       <script src="bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>
       <script src="js/Underscore-1.4.4.min.js" type="text/javascript"></script>
       <script src="js/app.js" type="text/javascript"></script>
+    
       <script src="js/Controllers/EventController.js" type="text/javascript"></script>
-
+      <script src="js/durationFilterJs.js" type="text/javascript"></script>
+      <script src="js/Services/EventDataServices.js" type="text/javascript"></script>
 </head>
 <body ng-cloak>
 <div class="container">
   <div class="navbar">
       <div class="navbar-inner">
+      <ul class="nav">
+      <li><a href="EditEventDetails.htm">Create Event</a></li>
+      </ul>
           <p class=""><center><h2>Event Registration</h2></center></p>
       </div>
   </div>
@@ -90,14 +96,24 @@
     <h3>Sessions</h3>
     Order By:
     <select ng-model="sortorder" class="input-small">
-    <option selected value="name">Name</option>
+    <option selected value="">Name</option>
     <option selected value="-upVoteCount">Votes</option>
     </select>
     
+    Show:
+<!--     <select ng-model="query.level" class="input-medium">-->
+     <select ng-model="query" class="input-medium">
+    <option selected value="">All</option>
+    <option selected value="introductory">Introductory</option>
+    <option selected value="intermediate">Intermediate</option>
+    <option selected value="advance">Advanced</option>
+    </select>
+
+
     <ul class="thumbnails">
     
-     <li ng-repeat="session in event.sessions | orderBy : sortorder | limitTo : 2">
- <!--    <li ng-repeat="session in event.sessions">-->
+     <li ng-repeat="session in event.sessions | orderBy : sortorder | limitTo : 2 | filter : query">
+ <!--    <li ng-repeat="session in event.sessions">    -->
       <div class="row session">
      <div class="span0 well votingWidget">
      <div class="votingButton" ng-click="upVoteSession(session)">
@@ -112,9 +128,10 @@
         </div>
           <div class="well span9">
           <h4 class="well-title">   {{session.name}}</h4>
+        
           <h6 > Age : {{session.age}}</h6>
           <h6>Address : {{session.address}}</h6>
-         
+          <h6>Duration :  {{session.duration | durationFilter}}</h6>
         </div>
         </div>
       </li>
