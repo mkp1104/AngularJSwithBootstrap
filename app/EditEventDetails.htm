@@ -20,6 +20,7 @@
       <script src="js/Controllers/EventController.js" type="text/javascript"></script>
       <script src="js/Controllers/EditEventController.js" type="text/javascript"></script>
       <script src="js/durationFilterJs.js" type="text/javascript"></script>
+      <script src="bower_components/angular/angular-resource.js" type="text/javascript"></script>
       <script src="js/Services/EventDataServices.js" type="text/javascript"></script>
 </head>
 <body ng-cloak>
@@ -42,7 +43,7 @@
       <label for="eventName">Event Name:</label>
       <input id="eventName" type="text" ng-model="event.name"   placeholder="Name of your Event......"/>
       <label for="eventDate">Event Date:</label>
-      <input id="eventDate" type="text" ng-model="event.date" required ng-pattern="/\d\d/\d\d/\d\d\d\d/"placeholder="Formate (mm//dd//yyyy)...."/>
+      <input id="eventDate" type="text" ng-model="event.date"  ng-pattern="/\d\d/\d\d/\d\d\d\d/"placeholder="Formate (mm//dd//yyyy)...."/>
       <label for="eventTime">Event Time:</label>
       <input id="eventTime" type="text" ng-model="event.time"  placeholder="Time of your Event......"/>
       <label for="eventLocation">Event Location:</label>

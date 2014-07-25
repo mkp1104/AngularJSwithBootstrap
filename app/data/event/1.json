@@ -1,0 +1,44 @@
+       {
+			 
+			  name: 'Angular Js',
+            date: '1/2/2010',
+            time: '10:30 am',
+            location: {
+              address: 'Google HeadQuarters',
+              city: 'Mountain View(C.A)',
+              province: '(U.S.A)'
+            },
+            imageUrl: 'img/anguralBlue.png',
+            /// <reference path="../../img/anguralBlue.png" />/// <reference path="../../img/anguralBlue.png" />
+
+
+            sessions: [
+        {
+          name: 'Manish Prasad Advanced',
+          age: '23',
+          address: 'India(Earth)',
+          duration: 2,
+          level: 'Advanced',
+
+          upVoteCount: 3
+        },
+        {
+          name: 'Raghav Sinha Introductory',
+          age: '23',
+          address: 'India(Earth)',
+          duration: 5,
+          level: 'Introductory',
+
+          upVoteCount: 8
+        },
+        {
+          name: 'Salman Khan',
+          age: '23',
+          address: 'India(Earth)',
+          duration: 9,
+          level: 'Intermediate',
+
+          upVoteCount: 10
+        }
+        ]
+

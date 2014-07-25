@@ -1,5 +1,5 @@
 ﻿'use strict';
-var App = angular.module('eventsApp', ['ngSanitize']);
+var App = angular.module('eventsApp', ['ngSanitize','ngResource']);
 //App.filter('durationFilter', function () {
 //  return function (duration) {
 //    switch (duration) { 
@@ -21,8 +21,14 @@ App.controller('EventController', function EventController($scope, eventData) {
   $scope.myStyle = { color: 'red' };
   $scope.myClass = "Blue";
   $scope.buttonDisable = true;
-//  $scope.sortorder = 'name';
-  $scope.event = eventData.event;
+  //  $scope.sortorder = 'name';
+  //  eventData.getEvent(function (event) {
+//  $scope.event = eventData.getEvent().then(function (event) { $scope.event = event; }, function (status) { console.log(status); });
+//  $scope.event = eventData.getEvent();
+  eventData.getEvent().$promise.then(
+ (function (event) { $scope.event = event; }, function (status) { console.log(status); })
+  );
+  //  });
   //  $scope.event = {
   //    name: 'Angular Js',
   //    date: '1/2/2010',
