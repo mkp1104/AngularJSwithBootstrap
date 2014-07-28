@@ -19,6 +19,7 @@
 
 //	    };
 	    $scope.skills.push(reff);
+	    console.log(reff);
 	    $scope.reff = angular.copy(defaultForm);
 	  }
 
@@ -34,14 +35,15 @@
 	    interviewerRating: ""
 	  };
 	  $scope.addSkills = function (reff) {
-//	    var skill = {
-//	      skillname: $scope.name,
-//	      jrssRating: $scope.jrssrating,
-//	      interviewerRating: $scope.interviewrating
+	    //	    var skill = {
+	    //	      skillname: $scope.name,
+	    //	      jrssRating: $scope.jrssrating,
+	    //	      interviewerRating: $scope.interviewrating
 
 
-//	    };
+	    //	    };
 	    $scope.skills.push(reff);
+	    console.log(reff);
 	    $scope.reff = angular.copy(defaultForm);
 	  }
 
@@ -49,22 +51,24 @@
 
 
 	// create angular controller
-	validationApp.controller('mainController', function($scope) {
-
- 
+	validationApp.controller('mainController', function ($scope) {
 
 
 
 
 
-		// function to submit the form after all validation has occurred			
-		$scope.submitForm = function() {
 
-			// check to make sure the form is completely valid
-			if ($scope.userForm.$valid) {
-				alert('our form is amazing');
-			}
 
-		};
+	  // function to submit the form after all validation has occurred			
+	  $scope.submitForm = function (data) {
+
+	    // check to make sure the form is completely valid
+	    if ($scope.userForm.$valid) {
+	      console.log(data);
+	      console.log('Submitiing!!!!!!!!!!!');
+	      alert('our form is amazing');
+	    }
+
+	  };
 
 	});
