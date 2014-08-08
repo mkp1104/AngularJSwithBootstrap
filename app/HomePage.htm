@@ -17,7 +17,7 @@
     <!-- FORM ============================================================== -->
     <!-- =================================================================== -->
   
-    <form name="userForm" ng-submit="submitForm(user)" novalidate>
+    <form name="userForm" ng-submit="submitForm()" novalidate>
 
         <!-- Candidate Name -->
           <div class="form-group" ng-class="{ 'has-error' : userForm.candidatename.$invalid && !userForm.candidatename.$pristine }">
@@ -132,7 +132,7 @@
 				</thead>
 				<tbody>
          
-					<tr  ng-repeat="skill in skills">
+					<tr  ng-repeat="skill in user.skillsReff1">
 					<td>{{skill.name}}</td>
 					<td>
 					    {{skill.jrssrating}}
@@ -189,7 +189,7 @@
         </thead>
         <tbody>
 
-            <tr ng-repeat="skill in skills">
+            <tr ng-repeat="skill in user.skillsReff2">
               <td>{{skill.name}}</td>
               <td>
                   {{skill.jrssrating}}
@@ -341,6 +341,7 @@
 </div>
 
   <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="bower_components/angular/angular-resource.js" type="text/javascript"></script>
   <script src="js1/app.js" type="text/javascript"></script>
   <br />
 </body>

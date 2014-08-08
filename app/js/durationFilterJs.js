@@ -3,7 +3,9 @@
 /* Filters */
 
 //var App = angular.module('eventsApp', ['ngSanitize']);
-App.filter('durationFilter', function () {
+//App.filter('durationFilter', function () {
+compileApp.filter('durationFilter', function () {
+
   return function (duration) {
     switch (duration) {
       case 2:

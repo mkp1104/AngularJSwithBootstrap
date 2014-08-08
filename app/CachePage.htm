@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="cacheApp">
+<head>
+    <link href="bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="bower_components/angular/angular-resource.js" type="text/javascript"></script>
+    <script src="CatchJs/CatchJScript.js" type="text/javascript"></script>
+    <script src="CatchJs/Controller/CacheControllerJScript.js" type="text/javascript"></script>
+
+    <title>CatchSample</title>
+</head>
+<body >
+<div class='container'>
+    <div ng-controller="CatchSampleController">
+    key :<input type="text" ng-model="key"/><br />
+    value :<input type="text" ng-model="value"/><br />
+    <button type="button" class="btn" ng-click="addToCache(key,value)">Add To Cache</button>    
+    <br />
+    <br />
+    <input type="text" ng-model="keyToRead"><br />
+    <h3> Value from CaChe : {{ readFromCache(keyToRead) }}   </h3> <!--if a key is being used by ng-model then it will not be puuled out from queue next  value will be pulled out-->
+    <h3>  CaChe Status: {{ getCacheStatus() }}   </h3>
+
+    </div>
+</div>
+</body>
+</html>

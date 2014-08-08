@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="compileApp">
+<head>
+    <link href="bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="CompileJs/jquery-1.11.1.min.js" type="text/javascript"></script>
+
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="bower_components/angular/angular-resource.js" type="text/javascript"></script>
+    <script src="js/angular-locale_ar-dj.js" type="text/javascript"></script>
+    <script src="CompileJs/CompileJScript.js" type="text/javascript"></script>
+    <script src="CompileJs/controller/CompileControllerJScript.js" type="text/javascript"></script>
+    <script src="js/angular-sanitize.js" type="text/javascript"></script>
+    <script src="js/angular-cookies.js" type="text/javascript"></script>
+    <script src="js/durationFilterJs.js" type="text/javascript"></script>
+    <title>CatchSample</title>
+</head>
+<body >
+<div class='container'>
+    <div ng-controller="CompileSampleController">
+    <div id="appendHere">
+    </div>
+    Name :<input type="text" ng-model="name"/><br />
+    markup :<input type="text" ng-model="markup"/><br />
+    <button type="button" class="btn" ng-click="appendDivToElement(markup)">APPend</button>    
+    
+
+    </div>
+</div>
+<div ng-controller="LocaleController" ng-model="myDate" >
+
+<h3 >{{ myDate | date:myFormat }}</h3>
+
+</div>
+
+<div ng-controller="TimeOutController">
+<button class="btn" ng-click="cancel">Cancel</button>
+<h3>Name:{{name}}</h3>
+
+<input type="text" ng-model="foo"/>
+</div>
+<!--<div class="container" ng-controller ="FilterSampleController">
+    Duration1:{{data.duration2}}<br />
+    Duration2:{{data.duration5}}<br />
+    Duration3:{{data.duration9}}<br />
+    <!--Duration4:{{data.duration4}}<br />
+
+</div>-->
+
+
+<div ng-controller="CookiesController">
+   <button class="btn" ng-click="SaveCookies(event)">SaveCookies</button>
+   <button class="btn" ng-click="GetCookies()">GetCookies</button>
+   <button class="btn" ng-click="RemoveCookies()">RemoveCookies</button>
+
+</div>
+</body>
+</html>
